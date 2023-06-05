@@ -41,6 +41,7 @@
     "autoprefixer": "^9.7.3",
     "json-server": "^0.15.1",
     "postcss-cli": "^7.1.0",
+    "purgecss": "^5.0.0",
     "serve": "^11.3.2"
   }
 }

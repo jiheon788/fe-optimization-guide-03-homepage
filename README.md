@@ -158,7 +158,7 @@ WebM은 특히 웹 환경에서 동영상을 효율적으로 제공하고자 할
 
 폰트 최적화 방법은 **폰트 적용 시점을 제어하는 방법**과 **사이즈를 줄이는 방법**이 있습니다.
 
-#### 폰트 적용 시점 제어하기
+### 폰트 적용 시점 제어하기
 
 CSS의 `font-display` 속성으로 폰트 적용 시점 제어가 가능합니다.
 
@@ -167,3 +167,19 @@ CSS의 `font-display` 속성으로 폰트 적용 시점 제어가 가능합니�
 - fallback: FOIT (timeout = .1s)
 - optional: FOIT (timeout = .1s)
 - swap: FOUT
+
+### 폰트 포맷 변경
+
+```css
+@font-face {
+  font-family: BMYEONSUNG;
+  src: url("./assets/fonts/BMYEONSUNG.woff2") format("woff2"), url("./assets/fonts/BMYEONSUNG.woff")
+      format("woff"), url("./assets/fonts/BMYEONSUNG.ttf") format("truetype");
+  font-display: block;
+}
+```
+
+- 특정 문자열에서만 사용된다면 `서브셋 폰트` 사용 고려가능합니다.
+- Data-URI는 css 속도를 저하시켜 또 다른 병목 발생이 가능합니다.
+
+#### [Font Converter: transfonter](https://transfonter.org/)
