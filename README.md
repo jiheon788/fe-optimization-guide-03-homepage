@@ -87,7 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 이미지 지연 로딩은 성능 최적화의 중요한 방법 중 하나이지만, 적절하게 사용되어야 합니다. 만약 모든 이미지에 지연 로딩을 적용하면 사용자가 스크롤할 때마다 이미지 로딩이 발생해 사용자 경험을 해칠 수 있습니다. 따라서, 주요 컨텐츠나 초기에 보여지는 이미지 등은 지연 로딩 대상에서 제외하는 것이 좋습니다.
 
-## `Optimize Image Size`
+## `Optimize Image/Video Size`
+
+### `WebP`
 
 WebP는 Google이 개발한 이미지 포맷입니다. JPEG, PNG, GIF 등 기존의 이미지 포맷에 비해 파일 크기를 크게 줄일 수 있으면서도 비슷하거나 더 좋은 품질을 유지할 수 있습니다. 이렇게 하면 웹 페이지의 로딩 속도를 높이고, 대역폭 사용을 줄일 수 있습니다.
 
@@ -105,11 +107,6 @@ WebP는 손실 압축(Lossy compression)과 무손실 압축(Lossless compressio
   <source data-srcset="{main_items_webp}" type="image/webp" />
   <img data-src="{main_items}" ref="{imagEl1}" />
 </picture>
-
-<video autoplay loop muted>
-  <source src="{video_webm}" type="video/webm" />
-  <source src="{video}" type="video/mp4" />
-</video>
 ```
 
 #### [Image Converter: Squoosh](https://squoosh.app/)
@@ -120,6 +117,27 @@ WebP는 손실 압축(Lossy compression)과 무손실 압축(Lossless compressio
 ![image](https://github.com/jiheon788/react-query-realworld/assets/90181028/71caaa06-5474-4281-8db2-2ea9260a1e9b)
 
 </details>
+
+### `WebM`
+
+WebM은 Google이 2010년에 개발한 오픈소스 동영상 파일 포맷입니다. VP8 또는 VP9 비디오 코덱과 Vorbis 또는 Opus 오디오 코덱을 사용하며, HTML5의 `<video>`태그와 잘 호환됩니다.
+
+WebM의 몇 가지 주요 특징은 다음과 같습니다:
+
+1. 높은 압축률: WebM은 고품질의 비디오를 상대적으로 작은 파일 크기로 압축할 수 있습니다. 이는 웹 상에서 비디오를 스트리밍하거나 다운로드할 때 대역폭을 절약하는 데 유용합니다.
+
+2. 로열티-프리: WebM 프로젝트는 모든 소프트웨어와 하드웨어 제조사가 자유롭게 WebM 포맷을 사용할 수 있도록 로열티-프리 라이선스를 제공합니다. 이로 인해 개발자는 추가 비용 없이 WebM을 사용할 수 있습니다.
+
+3. 브라우저 호환성: WebM은 Chrome, Firefox, Opera 등 대부분의 모던 웹 브라우저에서 지원됩니다. 하지만 Safari는 기본적으로 WebM을 지원하지 않으므로 주의가 필요합니다.
+
+WebM은 특히 웹 환경에서 동영상을 효율적으로 제공하고자 할 때 유용합니다. YouTube 같은 동영상 플랫폼에서는 WebM 포맷을 널리 사용하고 있습니다.
+
+```html
+<video autoplay loop muted>
+  <source src="{video_webm}" type="video/webm" />
+  <source src="{video}" type="video/mp4" />
+</video>
+```
 
 #### [Video Converter: Media.io](https://convert.media.io/app/)
 
