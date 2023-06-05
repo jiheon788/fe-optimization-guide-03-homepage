@@ -105,7 +105,27 @@ WebP는 손실 압축(Lossy compression)과 무손실 압축(Lossless compressio
   <source data-srcset="{main_items_webp}" type="image/webp" />
   <img data-src="{main_items}" ref="{imagEl1}" />
 </picture>
+
+<video autoplay loop muted>
+  <source src="{video_webm}" type="video/webm" />
+  <source src="{video}" type="video/mp4" />
+</video>
 ```
 
-- [Image Converter: Squoosh](https://squoosh.app/)
-  ![image](https://github.com/jiheon788/react-query-realworld/assets/90181028/71caaa06-5474-4281-8db2-2ea9260a1e9b)
+#### [Image Converter: Squoosh](https://squoosh.app/)
+
+<details>
+<summary>Squoosh Config example</summary>
+
+![image](https://github.com/jiheon788/react-query-realworld/assets/90181028/71caaa06-5474-4281-8db2-2ea9260a1e9b)
+
+</details>
+
+#### [Video Converter: Media.io](https://convert.media.io/app/)
+
+<details>
+<summary>Media.io Config example</summary>
+
+![image](https://github.com/jiheon788/react-query-realworld/assets/90181028/f1e7935f-7800-4a49-a6d0-de6a2417fbb0)
+
+</details>
