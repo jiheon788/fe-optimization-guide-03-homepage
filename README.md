@@ -39,6 +39,7 @@ $ yarn serve
 ## Problems - Solutions
 
 - [x] Unused Image - Image Lazy Loading (using `IntersectionObserver`)
+- [x] Slow Image loading - Optimize Resource (webp)
 
 ## `Image Lazy Loading`
 
@@ -85,3 +86,26 @@ document.addEventListener("DOMContentLoaded", function () {
 또한, React와 같은 프론트엔드 라이브러리나 프레임워크에서는 react-lazyload, react-loadable 등의 라이브러리를 이용해 이미지 또는 컴포넌트의 지연 로딩을 구현할 수 있습니다.
 
 이미지 지연 로딩은 성능 최적화의 중요한 방법 중 하나이지만, 적절하게 사용되어야 합니다. 만약 모든 이미지에 지연 로딩을 적용하면 사용자가 스크롤할 때마다 이미지 로딩이 발생해 사용자 경험을 해칠 수 있습니다. 따라서, 주요 컨텐츠나 초기에 보여지는 이미지 등은 지연 로딩 대상에서 제외하는 것이 좋습니다.
+
+## `Optimize Image Size`
+
+WebP는 Google이 개발한 이미지 포맷입니다. JPEG, PNG, GIF 등 기존의 이미지 포맷에 비해 파일 크기를 크게 줄일 수 있으면서도 비슷하거나 더 좋은 품질을 유지할 수 있습니다. 이렇게 하면 웹 페이지의 로딩 속도를 높이고, 대역폭 사용을 줄일 수 있습니다.
+
+WebP는 손실 압축(Lossy compression)과 무손실 압축(Lossless compression) 둘 다 지원합니다.
+
+- 손실 압축 `WebP`: 원본 이미지의 일부 데이터를 생략하여 파일 크기를 줄입니다. 이 때문에 원본 이미지와 정확히 동일하게 복원할 수는 없지만, 품질 손실이 눈에 띄지 않을 정도로 작습니다. 일반적으로 JPEG보다 약 25~34% 작은 파일 크기를 가집니다.
+- 무손실 압축 `WebP`: 원본 이미지의 모든 데이터를 유지하면서 파일 크기를 줄입니다. 압축 후에도 원본 이미지와 완전히 동일하게 복원할 수 있습니다. 일반적으로 PNG보다 약 26% 작은 파일 크기를 가집니다.
+
+또한, WebP는 애니메이션과 투명도(알파 채널)도 지원합니다. 이런 면에서는 GIF나 PNG와 같은 기능을 대체할 수 있습니다.
+
+그러나 WebP는 모든 웹 브라우저에서 지원되지는 않습니다. 특히 Internet Explorer나 일부 구형 브라우저에서는 WebP를 지원하지 않습니다. 따라서 웹 사이트에서 WebP 이미지를 사용할 경우에는 브라우저의 지원 여부를 확인하고, 필요에 따라 JPEG나 PNG와 같은 다른 포맷의 이미지를 대체로 제공해야 할 수도 있습니다.
+
+```html
+<picture>
+  <source data-srcset="{main_items_webp}" type="image/webp" />
+  <img data-src="{main_items}" ref="{imagEl1}" />
+</picture>
+```
+
+- [Image Converter: Squoosh](https://squoosh.app/)
+  ![image](https://github.com/jiheon788/react-query-realworld/assets/90181028/71caaa06-5474-4281-8db2-2ea9260a1e9b)

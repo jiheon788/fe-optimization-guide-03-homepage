@@ -8,6 +8,8 @@ import main1 from "../assets/main1.jpg";
 import main2 from "../assets/main2.jpg";
 import main3 from "../assets/main3.jpg";
 import main_items from "../assets/main-items.jpg";
+import main_items_webp from "../assets/main-items.webp";
+
 import main_parts from "../assets/main-parts.jpg";
 import main_styles from "../assets/main-styles.jpg";
 
@@ -49,7 +51,10 @@ function MainPage(props) {
         <TwoColumns
           bgColor={"#f4f4f4"}
           columns={[
-            <img data-src={main_items} ref={imagEl1} />,
+            <picture>
+              <source data-srcset={main_items_webp} type="image/webp" />
+              <img data-src={main_items} ref={imagEl1} />
+            </picture>,
             <Meta
               title={"Items"}
               content={
