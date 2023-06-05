@@ -147,3 +147,23 @@ WebM은 특히 웹 환경에서 동영상을 효율적으로 제공하고자 할
 ![image](https://github.com/jiheon788/react-query-realworld/assets/90181028/f1e7935f-7800-4a49-a6d0-de6a2417fbb0)
 
 </details>
+
+## Optimize Font
+
+웹페이지에서 웹 폰트를 로드할 때 발생할 수 있는 두 가지 현상이 있습니다.
+
+- `FOUT` (Flash of Unstyled Text): 웹페이지가 로드되는 동안, 웹 폰트가 아직 로드되지 않았을 때 브라우저가 시스템 폰트를 임시로 보여주는 현상을 말합니다. 웹 폰트가 완전히 로드되면, 웹페이지는 웹 폰트로 업데이트됩니다. 이 현상은 사용자가 내용을 빠르게 볼 수 있게 하지만, 폰트가 바뀌는 과정에서 레이아웃의 변화가 발생할 수 있습니다. (edge)
+
+- `FOIT` (Flash of Invisible Text): 이는 웹페이지가 로드되는 동안 웹 폰트가 로드되지 않았을 때 브라우저가 텍스트를 숨기는 현상을 말합니다. 웹 폰트가 완전히 로드되면 텍스트가 나타납니다. 이 현상은 레이아웃의 안정성을 유지하지만, 폰트 로딩 시간 동안 사용자가 텍스트를 볼 수 없게 됩니다. (chrome, safari, firefox, etc ..)
+
+폰트 최적화 방법은 **폰트 적용 시점을 제어하는 방법**과 **사이즈를 줄이는 방법**이 있습니다.
+
+#### 폰트 적용 시점 제어하기
+
+CSS의 `font-display` 속성으로 폰트 적용 시점 제어가 가능합니다.
+
+- auto: 브라우저 기본 동작
+- block: FOIT (timeout = 3s)
+- fallback: FOIT (timeout = .1s)
+- optional: FOIT (timeout = .1s)
+- swap: FOUT
